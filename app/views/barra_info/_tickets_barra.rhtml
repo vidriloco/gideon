@@ -1,0 +1,18 @@
+				
+     <% if @tickets.length > 0 %>
+     		<div id="tickets">
+        <% for ticket in @tickets %>
+        		<p>
+        		<i>
+        		 <%= link_to_remote "#{ticket.llamada.concepto_de_la_llamada}", :url => {:controller => 'barra_info',
+        		 :action => :desde_barra, :id=> ticket} %>
+        		</i>
+        		 <%= ticket.estado %>
+        		</p>
+        <% end %>
+        </div>
+     <% else %>
+        	 <div id="vacio">
+        		<p>No hay tickets aún</p>
+        	 </div>
+     <% end %>

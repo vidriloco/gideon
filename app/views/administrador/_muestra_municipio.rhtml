@@ -1,0 +1,15 @@
+<p><%= link_to_remote "#{estado.estado}", :url => {:action => :esconde_municipio, :id => estado} %></p>
+
+<%= link_to_remote 'Agregar Municipio', :url => {:action => :nuevo_municipio, :id => estado }%>
+<%= link_to 'Eliminar', { :action => :destroy, :id => estado }, :confirm => '¿Estás seguro?', :method => :post %>
+
+<div id=<%= "nuevomun" + estado.id.to_s + ">" %></div>
+
+<h4>Municipios</h4>
+<div id=<%= "conjunto_municipio" + estado.id.to_s + ">" %>
+<% for municipio in @municipios_de_estado %>
+	<div id=<%= "muni" + estado.id.to_s + municipio.id.to_s + ">" %><h5><%= municipio.localidad %></h5></div>
+<% end %>
+</div>
+<br/>
+

@@ -1,0 +1,237 @@
+
+body {
+margin:10px;
+height:100%;
+background-color:#ffffff;
+color:#000000;  
+text-align:center;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:16px;
+}
+
+a {
+color:#cc0000;
+text-decoration:underline;
+font-size:10px;
+}
+
+ul {
+margin:0 0 0 20px;
+list-style-type:disc;
+}
+
+li {
+margin:4px 0 5px 10px;
+}
+
+
+blockquote {
+margin:1em;
+padding:.5em;
+background-color:#eeeeee;
+border-top:1px solid #cccccc;
+border-bottom:1px solid #cccccc;
+}
+
+blockquote p {
+margin:.2em;
+}
+
+#container { 	
+margin:0 auto;
+padding:0;
+width:1170px;
+height:auto;
+text-align:left;
+vertical-align: middle;	
+background-color:#ffffff;
+border:1px solid #cccccc;
+}
+
+#header {
+margin:0;
+padding:0;
+height:86px;
+background-image: url(../images/elegant.png);
+background-repeat: repeat-x repeat-y;
+}
+
+#subheader{
+display: table;
+height:20px;
+background-image: url(../images/rosa_stripe.png);
+background-repeat: repeat-x repeat-y;
+margin-bottom:10px;
+margin-top:.9px;
+border-bottom: .1px solid #D0AFAF;
+}
+
+#header h1 {
+margin:0;
+padding:20px 0 0 20px;
+font-size:1.8em;
+letter-spacing:.1em;
+color:#ffffff;
+font-weight:lighter;
+}
+
+#header h2 {
+margin:0;
+padding:0 0 0 20px;
+font-size:.9em;
+font-weight:lighter;
+letter-spacing:.1em;
+color:#eeeeee;
+}
+
+
+#centerColumn { 	
+margin:0 0 0 20px;
+padding:0;
+background-color:#ffffff;
+}
+
+#centerColumn p {
+padding:10px
+}
+
+#centerColumn h2 {
+font-weight:normal;
+margin:0;
+padding:10px 0 5px 0;
+font-size:1.3em;
+letter-spacing:.1em;
+}
+
+#footer {
+position:relative;
+bottom:0;
+margin:80px 0 0 0;
+padding:0;
+height:50px;
+line-height:60px;
+text-align:center;
+font-size:.6em;
+background-color:#ffffff;
+border-top:1px solid #cccccc;
+}
+
+#centerColumn h3 {
+font-weight:normal;
+margin:0;
+padding:10px 0 5px 0;
+font-size:1.1em;
+letter-spacing:.1em;
+}
+
+#centerColumn h5,p {
+font-weight:normal;
+margin:0;
+padding:10px 0 5px 0;
+font-size:.7em;
+letter-spacing:.1em;
+}
+
+#leftColumn {
+float:left;
+margin:0;
+padding:0;
+width:160px;
+font-size:.9em;
+}
+
+#leftColumn p {
+padding:10px
+}
+
+
+#leftColumn h2 {
+margin:0;
+padding:10px 0 0 10px;
+font-size:1em;
+}
+
+#leftColumn ul {
+margin:0 0 0 0;
+list-style:none;
+}
+
+#leftColumn li {
+margin:4px 0 5px 10px;
+}
+
+#leftColumn li a {
+text-decoration:underline;
+}
+
+#campo{
+padding: 10px 60px 10px 40px;
+width: 600px;
+border: 1px;
+border-left: 10px;
+}
+
+#campo h5 {
+display: block;
+text-align: left;
+font-weight: bold;
+font-size:13px;
+color: #6EAB03;
+text-transform: uppercase;
+}
+
+#campo p {
+display: inline;
+font-weight: normal;
+color: black;
+}
+
+table { 
+font-family: Arial, sans-serif; 
+font-size: 10px; 
+width: auto; 
+float: center;
+margin-right: auto;
+ }
+table th { 
+text-align: center; 
+padding: 4px 0 4px 9px;
+padding-right: 8px;
+background-image: url(../images/lima_stripe.png);
+background-repeat: repeat-x repeat-y;
+border: 1px solid #D7DCE1;
+color: black; 
+}
+table tr td { 
+padding:5px; 
+}
+table tr.even td { 
+background-image: url(../images/kiwi_stripe.png);
+background-repeat: repeat-x repeat-y;
+border: 0px; 
+}
+table tr.odd td { 
+background: #FFF; 
+border: 1px solid #DEDADA;  
+}
+table tr td#plano{
+width: 20%;
+text-align: center;
+padding: 1px;
+}
+.sobre_l{
+background-image: url(../images/amarillo_stripe.png);
+background-repeat: repeat-x repeat-y;
+}
+.total_e{
+background-image: url(../images/kiwi_stripe.png);
+background-repeat: repeat-x repeat-y;
+}
+.totalc{
+background-image: url(../images/azul_stripe.png);
+background-repeat: repeat-x repeat-y;
+}
+.prom_total{
+background-image: url(../images/naranja_stripe.png);
+background-repeat: repeat-x repeat-y;
+}

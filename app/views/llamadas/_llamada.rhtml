@@ -1,0 +1,32 @@
+
+ <table> 
+  <tr>
+  	<th>Tipo de Llamada</th>
+		<th>Contacto</th>
+		<th>Estado</th>
+		<th>Fecha y hora</th>
+		<th>Agente</th>
+  </tr>
+
+<% i = 0%>
+<% for llamada in @llamadas %>
+  <% if i.odd? %>
+  		<tr class="odd">
+  <% else %>
+  		<tr class="even">
+  <% end %>
+  	 <td><%=h llamada.tipo_de_llamada %></td>
+	 <td><%=h llamada.contacto %></td>
+ 	 <td><%=h llamada.estado %></td>
+ 	 <td><%=h llamada.fecha_y_hora.to_s(:long) %></td>
+	 <td><%=h llamada.agente %></td>
+   <td id="plano">
+	 <%= link_to_remote 'Detallar', :url => {:action => 'show', :id => llamada} %> 
+   <% if llamada.class == Falla and llamada.ticket %>
+	   <%= link_to_remote 'Ticket', :url => {:controller => 'barra_info', :action => :desde_barra, :id => llamada.ticket} %>
+	 <% end %>
+	 </td>
+  </tr>
+  <%i = i+1 %>
+<% end %>
+  </table>

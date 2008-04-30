@@ -1,0 +1,7 @@
+<div class="auxiliar" id="superiores">
+<%= link_to_remote "Atrás", :url => {:action => :desde_barra, :id => @ticket} %>
+</div> 
+	<% @record = @ticket.llamada.cliente %>
+		<%= render :partial => "principal/cliente", :object => @record %>	
+	<% @record = @ticket.llamada %>
+		<%= render :partial => "principal/llamada", :object => @record %>

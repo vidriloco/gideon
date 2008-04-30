@@ -1,0 +1,79 @@
+<% @llamada = @record %>
+<%= hidden_field_tag "llamada_type", @llamada[:type] %>
+<!--[form:prospecto]-->
+
+<div id="combo1">
+<fieldset id="extendido">  
+<legend><span>Registro de Prospecto</span></legend>  
+<ol>
+<li>
+<label for="llamada_fecha_de_instalación">Fecha de instalación</label><br/>
+<%= date_select 'llamada', 'fecha_de_instalación'  %>
+</li>
+  <% if @llamada.producto == "Internet"%>
+		<% @seleccion = ProspectoPaquete::paquetes_con_nombre_de("Internet") %>
+	<% elsif @llamada.producto == "Telefonía" %>
+		<% @seleccion = ProspectoPaquete::paquetes_con_nombre_de("Telefonía") %>
+	<% elsif @llamada.producto == "Televisión"%>
+		<% @seleccion = ProspectoPaquete::paquetes_con_nombre_de("Televisión") %>
+	<% else %>
+		<% @seleccion = ["SELECCIONA UN TIPO DE SERVICIO"]%>
+	<% end %>
+<li>
+<label for="llamada_producto">Producto</label><br/>
+<%= select("llamada", "producto", MetaLlamada::motivos_nombre, { :include_blank => true })  %>
+</li>
+<li id="prospecto_s">
+<label for="llamada_paquete">Paquete</label><br/>
+<%= select("llamada", "paquete", @seleccion, { :include_blank => true })   %>
+</li>
+<li>
+<label for="llamada_cablepaquetes">Cablepaquetes</label><br/>
+<%= select("llamada", "cablepaquetes", ProspectoCablepaquete::cablepaquetes_nombre, { :include_blank => true }) %>
+</li>
+
+<li>
+<label for="llamada_fecha_de_cobro">Fecha de cobro</label><br/>
+<%= date_select 'llamada', 'fecha_de_cobro'  %>
+</li>
+<div id="secciona">
+	<li>
+	<div id="renglon">
+		<div id="inrenglon">
+			<label for="llamada_concepto_de_la_llamada">Concepto de la Llamada</label><br/>
+			<% concepto = MetaLlamada::configuraciones_nombre(3, 'm', "Prospecto", {1 => 'Triple'}) %>
+			<%= select("llamada", "concepto_de_la_llamada", concepto , { :include_blank => true })  %>
+		</div>
+		<div id="inrenglon">
+			<label for="llamada_digital">Digital</label><br/>
+			<%= select("llamada", "digital", Prospecto.digital, { :include_blank => true }) %>
+		</div>
+	</div>
+	</li>
+	<li>
+		<label for="llamada_soluciones">Soluciones</label><br/>
+		<%= text_area 'llamada', 'soluciones', "cols" => 40, "rows" => 5  %>
+	</li>
+	<li>
+		<label for="llamada_línea">Línea</label><br/>
+		<%= text_field 'llamada', 'línea'  %>
+	</li>
+	<li>
+		<label for="llamada_resultado_de_la_llamada">Resultado de la Llamada</label><br/>
+		<% resultado = MetaLlamada::configuraciones_nombre(4, 'r', "Prospecto", {1 => 'Triple'}) %>
+		<%= select("llamada", "resultado_de_la_llamada", resultado, { :include_blank => true }) %>
+	</li>
+	
+	<li>
+		<% @orden = @orden = Proceso.procesos_nombre_de("prospecto") %>
+		<label for="llamada_orden">Orden</label><br/>
+		<%= select("llamada", "orden", @orden , { :include_blank => true })  %>
+	</li>
+
+</div><!-- Termina secciona -->
+</ol>
+
+<%= observe_field ("llamada_producto", :frecuency => 0.5,:with => "producto", 
+		:url => {:controller => "llamadas", :action => "prospecto_selector" }) %>
+</fieldset>  
+</div>

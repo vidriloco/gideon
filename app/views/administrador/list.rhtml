@@ -1,0 +1,79 @@
+<div class="admin_principal_tabla">
+  <div class="admin_principal_renglon">
+  	<div class="bloquecillo">
+			<div id="estados_bloque">
+				<p class="encabezado"><b>Estados y Localidades</b></p>
+					<div id="estados" class="interior_bloque">
+						<% for estado in @estados %>
+						  <% for column in Estado.content_columns %>
+						  		<div id=<%= "estado" + estado.id.to_s + ">" %>
+						    <%= link_to_remote "#{estado.send(column.name)}", 
+						    		:url => {:action => :muestra_municipio, :id => estado} %>
+			    				</div>
+			 				<% end %>
+						<% end %>
+					</div>
+					<p><%= link_to_remote "Agregar Estado", :url => {:action => :new_estado} %></p>
+						<div id="nuevo_estado"></div>
+			</div>
+			<br/>
+			<%= link_to "Agregar datos a la base desde archivo CSV", :action => :agrega_csv %>
+		</div>
+				
+		<div class="bloquecillo">
+			<div id="registro_bloque">
+				<p class="encabezado"><b>Registro de un nuevo usuario</b></p>
+					<div id="registrop">
+						<%= render :partial => "register" %>
+					</div>
+					<br/>
+			</div>
+		</div>
+		<div class="bloquecillo">
+			<div id="estados_bloque_chico">
+				<p class="encabezado"><b>Generales de Llamada</b></p>
+					<div class="subencabezado"><h5><b>Números</b></h5></div>
+					<div id="lista_num" class="interior_bloque">
+						<% for tupla in MetaLlamada::numeros %>
+					  	  <%= render :partial => 'link_llamada', :locals => {:tupla => tupla} %>
+						<% end %>
+					</div>
+					<p>
+				<%= link_to_remote "Agregar nuevo número", :url => {:action => :new_meta_llamada, :id => 'num'} %>
+					</p>
+					<div id="metallamada_num"></div>
+					<div id="notificacion_num"></div>
+					<br/>
+					
+					<div class="subencabezado"><h5><b>Tipos de Llamada</b></h5></div>
+					<div id="lista_tla" class="interior_bloque">
+						<% for tupla in MetaLlamada::tipos_llamadas %>
+					  		<%= render :partial => 'link_llamada', :locals => {:tupla => tupla} %>
+						<% end %>
+					</div>
+					<br/>
+					
+					<div class="subencabezado"><h5><b>Motivos Disponibles</b></h5></div>
+					<div id="lista_mtv" class="interior_bloque">
+						<% for tupla in MetaLlamada::m_motivos %>
+					  		<%= render :partial => 'link_llamada', :locals => {:tupla => tupla} %>
+						<% end %>
+					</div>
+					<p>
+					<%= link_to_remote "Agregar nuevo motivo", 
+					:url => {:action => :new_meta_llamada, :id => "mtv"} %>
+					</p>
+					<div id="metallamada_mtv"></div>
+					<div id="notificacion_mtv"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="admin_principal_tabla">
+ <div class="admin_principal_renglon">
+ 	<% for tipo in MetaLlamada::tipos_llamadas_nombre %>
+			<%= render :partial => "configuraciones", :locals => {:tipo => tipo} %>
+	<% end %>
+ </div>	
+</div>
+

@@ -1,0 +1,21 @@
+<%= form_remote_tag :url => {:action => :otra} %>
+
+<div class="adorno_forma" id="falla_otra"></div> 
+	<div class="reporte_f" id="o_otra"> 
+		<div class="renglon_f">  
+			  <div class="bloquecillo"> 
+					<% seleccion = ["Todos","Rango de Tiempo","Acumulados de Hoy"]%>
+						<p><b>Tipo de extracción</b></p>
+						<p><%= select(:reporte, "rango", seleccion )%></p>
+				</div>
+	</div>
+</div>
+		<div id="reporte_consulta">
+			<%= submit_tag "Consultar" %>
+		</div>
+		<br/>
+		  	<div id="cambiante"></div>
+<%= end_form_tag %>
+
+<%= observe_field ("reporte_rango", :frecuency => 0.5, :with => "rango", 
+		:url => {:action => :cambiar_controles }) %>

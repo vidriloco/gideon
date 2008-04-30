@@ -1,0 +1,35 @@
+ <table class="reporte"> 
+  <tr>
+	<th>Contacto</th>
+	<th>Estado</th>
+	<th>Fecha y hora</th>
+	<th>Agente</th>
+ 	<th>Número de Reporte</th>
+	<th>Falla en Servicio</th>
+ 	<th>Tipo de Falla</th>
+ 	<th>Solución</th>
+  </tr>
+
+<% i = 0%>
+<% for elemento in @elementos %>
+  <% if i.odd? %>
+  		<tr class="odd">
+  <% else %>
+  		<tr class="even">
+  <% end %> 
+	 <td><%=h elemento.contacto %></td>
+ 	 <td><%=h elemento.estado %></td>
+ 	 <td><%=h elemento.fecha_y_hora.to_s(:short) %></td>
+	 <td><%=h elemento.agente %></td>
+   <td><%=h elemento.no_reporte %></td>
+   <td><%=h elemento.falla_en_servicio%></td>
+   <td><%=h elemento.tipo_de_falla %></td>
+   <%if elemento.solución_dada == "Se levantó un ticket" %>
+   		<td><%=h "Ticket" %></td>
+   <% else %>
+   		<td> Otra </td>
+   <% end %>
+  </tr>
+  <%i = i+1 %>
+<% end %>
+  </table>

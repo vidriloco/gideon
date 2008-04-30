@@ -1,0 +1,32 @@
+<div id="campo">
+	  <h4>Información de <%=h @record.send("tipo_de_llamada") %></h4>
+    <h5>Contacto: <p><%=h @record.send("contacto") %></p></h5>
+    <h5>Fecha y Hora: <p><%=h @record.send("fecha_y_hora").to_s(:long) %></p></h5>
+    <% if session[:usuario].rol_tipo == AGENTE %>
+    	<h5>Agente: <p><%=h @record.send("agente") %></p></h5>
+    <% end %>
+
+<% if @record.instance_of? Falla%>
+   	 <h5>Número de Reporte: <p><%=h @record.send("no_reporte") %></p></h5>
+   	 <% unless @record.comentarios.blank? %>
+   	 		<h5>Comentarios: <p class="comentario"><%=h @record.send("comentarios") %></p></h5>
+   	 <% end %>
+   	 <h5>Fecha de Solución: <p><%=h @record.send("fecha_de_solución").to_s(:long) %></p></h5>
+   	 <h5>Orden: <p><%=h @record.send("orden") %></p></h5>
+<% elsif @record.instance_of? Prospecto %>
+   	 <h5>Paquete: <p><%=h @record.send("paquete") %></p></h5>
+   	 <h5>CablePaquetes: <p><%=h @record.send("cablepaquetes") %></p></h5>
+  	 	 <h5>Soluciones: <p><%=h @record.send("soluciones") %></p></h5>
+	  	 <h5>Línea: <p><%=h @record.send("línea") %></p></h5>
+	  	 <h5>Fecha de Instalación: <p><%=h @record.send("fecha_de_instalación").to_s(:long) %></p></h5>
+	  	 <h5>Fecha de Cobro: <p><%=h @record.send("fecha_de_cobro").to_s(:long) %></p></h5>
+	  	 <h5>Digital: <p><%=h @record.send("digital") %></p></h5>
+	  	 <h5>Orden: <p><%=h @record.send("orden") %></p></h5>
+<% end %>
+<% unless @record.instance_of? Otra %>
+		 <h5>Producto: <p><%=h @record.send("producto") %></p></h5>
+   	 <h5>Concepto de la Llamada: <p><%=h @record.send("concepto_de_la_llamada") %></p></h5>
+<% end %>
+    	<h5>Resultado de la Llamada: <p><%=h @record.send("resultado_de_la_llamada") %></p></h5>
+ 
+</div>

@@ -1,0 +1,12 @@
+<div id="superiores">
+<%= link_to_remote "Cerrar", :url => {:action => :cierra_resultados, :id  => 'show'} %>
+</div> 
+
+<% if @model == Cliente %>
+<div id="campo">
+	<%= render :partial => "principal/cliente", :object => @record %>
+</div>
+<% else %>
+	<%= render :partial => "principal/llamada", :object => @record %>
+<% end %>
+

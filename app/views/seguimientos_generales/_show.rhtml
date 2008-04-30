@@ -1,0 +1,14 @@
+	<div id="campo">
+	<h4> Información de Ticket</h4>
+	<p>
+	  <h5>Título: <p><%=h @ticket.llamada.tipo_de_falla %></p></h5>
+	  <h5>Asignado a: <p><%= @ticket.enviar_a %></p></h5>
+	  <h5>Dueño: <p><%=h @ticket.dueno %></p></h5>
+	  <h5>Estado: <p><%=h @ticket.estado %></p></h5>
+	  <h5>Prioridad: <p><%=h @ticket.prioridad %></p></h5>
+	  <h5>Archivo adjunto: <p><%=h @ticket.adjunto %></p></h5>
+	  <h5>Fecha: <p><%=h @ticket.timestamp.to_s(:long) %></p></h5>
+	</p>
+	</div>
+	<%= link_to_remote 'Atrás', :url => {:action => :mixto, :id => 'a'} %>
+

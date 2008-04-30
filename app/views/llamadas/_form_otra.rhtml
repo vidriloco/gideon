@@ -1,0 +1,15 @@
+<% @llamada = @record %>
+<%= hidden_field_tag "llamada_type", @llamada[:type] %>
+
+<div id="combo1">
+<fieldset id="extendido">  
+<legend><span>Registro de Otro tipo de Llamada</span></legend>  
+<ol>
+<li>
+<label for="llamada_resultado_de_la_llamada">Resultado de la Llamada</label><br/>
+<% seleccion = MetaLlamada::configuraciones_nombre(5,'o', "Otra") %>
+<%= select("llamada", "resultado_de_la_llamada", seleccion, { :include_blank => true })  %>
+</li>
+
+</fieldset>  
+</div>

@@ -1,0 +1,10 @@
+<div id="superiores">
+	<%= link_to_remote "No Clasificable", :url => {:action => :remplaza_elemento, :id => "forma no_clasificable"} %>
+</div> 
+
+<%= form_remote_tag(:url => {:action => 'create' }) %>
+  <%= render :partial => 'form', :locals => {:value => 'Registro'} %>
+  <div id="submit">
+   <%= submit_tag "Crear" %>
+  </div>
+<% end_form_tag %>

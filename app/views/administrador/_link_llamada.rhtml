@@ -1,0 +1,25 @@
+<% if tupla.selector == 0 %>
+	<div id=<%= "#{tupla.id}_#{tupla.tipo_de_tipos}" %>>
+		<h5>
+			<i><%= tupla.tipo_de_tipos %></i>
+			<%= link_to_remote "Eliminar", :url => {:action => :destroy_meta_llamada, :id => tupla}, 
+				:confirm => "¿Estás seguro?" %>
+		</h5>
+	</div>
+<% elsif tupla.selector == 1 %>
+	<div id=<%= "#{tupla.id}_#{tupla.numeros}" %>>
+		<h5>
+			<i><%= tupla.numeros %></i>
+			<%= link_to_remote "Eliminar", :url => {:action => :destroy_meta_llamada, :id => tupla}, 
+				:confirm => "¿Estás seguro?" %>
+		</h5>
+	</div>
+<% elsif tupla.selector == 2 %>
+	<div id=<%= "#{tupla.id}_#{tupla.m_de_motivos}" %>>
+		<h5>
+			<i><%= tupla.m_de_motivos %></i>
+			<%= link_to_remote "Eliminar", :url => {:action => :destroy_meta_llamada, :id => tupla}, 
+				:confirm => "¿Estás seguro?" %>
+		</h5>
+	</div>
+<% end %>

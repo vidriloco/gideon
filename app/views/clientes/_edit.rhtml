@@ -1,0 +1,11 @@
+<div id="superiores">
+<%= link_to_remote "Cerrar", :url => {:action => :remplaza_elemento, :id => "forma new value Registro"} %>
+</div> 
+
+<%= form_remote_tag(:url => {:action => 'update', :id => @record }) %>
+   <%= render :partial => 'form', :locals => {:value => 'Modificación'}  %>
+	  <div id="submit">
+		   <%= submit_tag 'Guardar' %>
+	  </div>
+<% end_form_tag %>
+

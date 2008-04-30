@@ -1,0 +1,10 @@
+<% if solucion.blank? %>
+	<label for="llamada_resultado_de_la_llamada">Resultado de la Llamada</label><br/>
+	<%= select("llamada", "resultado_de_la_llamada", ["SELECCIONA UN TIPO DE SERVICIO"])  %>
+<% else %>
+	<label for="llamada_resultado_de_la_llamada">Resultado de la Llamada</label><br/>
+	<% seleccion = MetaLlamada::configuraciones_nombre(4, 'r', "Falla", {1 => solucion, 2 => 'Triple'}) %>
+	<%= select("llamada", "resultado_de_la_llamada", seleccion , { :include_blank => true })  %>
+<% end %>
+<%= observe_field ("llamada_resultado_de_la_llamada", :frecuency => 0.5, :with => "llamada[resultado_de_la_llamada]",
+   :url => {:controller => "llamadas", :action => "opcion_ticket" }) %>

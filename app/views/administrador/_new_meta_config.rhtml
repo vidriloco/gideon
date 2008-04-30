@@ -1,0 +1,30 @@
+<div id="superiores">
+		<% if selector == 'r' %>
+			<% dom  = "resultado#{tipo}" %>
+		<% else %>
+			<% dom  = "motivo#{tipo}" %>
+		<% end %>
+		<%= link_to_remote "Cerrar", :url => {:action => :oculta_nuevo_x, :id => dom} %>
+</div>
+
+<%= form_remote_tag( :url=> {:action => :create_meta_llamada, :id => "#{selector}:#{tipo}"}) %>
+  <%= error_messages_for 'meta_llamada' %>
+	
+		<% unless tipo.eql? 'Otra' %>
+			<p>
+				<label for="meta_llamada_motivo">Motivo Asociado</label><br/>
+				<%= select("meta_llamada", "motivo", MetaLlamada::motivos_nombre, { :include_blank => true })  %>
+			</p>
+		<% end %>
+	<p>
+		<% if selector == 'm' %>
+			<label for="meta_llamada_razon">Razón de Llamada</label><br/>
+				<%= text_field 'meta_llamada', 'razon'  %>
+		<% elsif selector == 'r' %>
+			<label for="meta_llamada_resultado">Resultado</label><br/>
+				<%= text_field 'meta_llamada', 'resultado'%>
+		<% end %>
+	</p>
+  <%= submit_tag "Guardar" %>
+<% end_form_tag %>
+<br/>

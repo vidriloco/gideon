@@ -1,0 +1,9 @@
+<p><%= link_to_remote "Ocultar", :url => {:action => :mensajes_esconde, :id => ticket} %>
+<%= link_to_remote "Responder", :url => {:action => :n_msg, :id => ticket} %></p>
+<div id="msg">
+	<% for historial in @historiales %>
+		<div id=<%="mensaje" + historial.id.to_s + historial.ticket_id.to_s + ">" %>
+		<p><b><%= historial.fecha.to_s(:long) %></b> <%= historial.mensaje %></p>
+		</div>
+	<% end %>
+</div>

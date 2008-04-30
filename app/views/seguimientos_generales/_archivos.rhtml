@@ -1,0 +1,5 @@
+<p><%= link_to_remote "Ocultar", :url => {:action => :mensajes_esconde, :id =>  ticket } %></p>
+
+<div id="seccion_o">
+<%= render :partial => "principal/detalles_archivo", :locals => {:ticket => ticket} %>
+</div>

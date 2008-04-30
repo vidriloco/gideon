@@ -1,0 +1,18 @@
+<% @tickets = @co_tickets[:items] %>
+<% @ticket_pages = @co_tickets[:item_pages] %>
+
+<h3>Tickets <%= conjunto %></h3>
+
+<% if @tickets.length > 0 %>
+<% for ticket in @tickets %>
+<div id="ticket">
+  <%= render :partial => "ticket", :locals => {:ticket => ticket} %>
+</div>
+<% end %>
+<% else %>
+	<div id="ticket">
+		<p><h5>No hay tickets <%= conjunto %></h5></p>
+	</div>
+<% end %>
+<% @elemento_pages = @ticket_pages %>
+<%= render :partial => "principal/paginacion" %>

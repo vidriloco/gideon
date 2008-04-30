@@ -1,0 +1,12 @@
+<div id="registro_bloque">
+			<p class="encabezado"><b>Insertar CSV a la base de datos</b></p>
+			<div id="estados" class="interior_bloque">
+				<h5><b class="alertar">Puede corromper los datos almacenados en el sistema</b></h5>
+				<%= start_form_tag ({:controller => :administrador, :action => 'inserta'}, :multipart => true) %>
+					<p>
+						<%= select("seleccion", "tipo", MetaLlamada::tipos_llamadas_nombre)  %>
+					</p>
+	 			  <p><%= file_field_tag('archivo') %></p>
+					<p> <%= submit_tag "Aceptar" %> </p>
+				<% end_form_tag %>
+</div></div>

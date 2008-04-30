@@ -1,0 +1,32 @@
+<%= form_remote_tag :url => {:action => :prospecto} %>
+
+	<div class="adorno_forma" id="falla_prospecto"></div> 
+	<div class="reporte_f" id="o_prospecto"> 
+		<div class="renglon_f">  
+			  <div class="bloquecillo">  
+						<% seleccion = ["Todos","Rango de Tiempo","Acumulados de Hoy"] %>
+						<p class="estrecho"><b> Rangos de Extracción </b></p>
+						<p class="estrecho"><%= select(:reporte, "rango", seleccion )%></p>
+				</div>
+				<div class="bloquecillo"> 
+						<p class="estrecho"><b> Aspectos </b></p>
+						<p class="estrecho"><%= select(:reporte, "aspecto", ["Razones", "Resultados", "Paquetes", "Cablepaquetes"] )%></p>
+				</div>
+				<div class="bloquecillo" id="producto"> 
+						<p class="estrecho"><b> Producto </b></p>
+						<p class="estrecho"><%= select(:reporte, "producto", MetaLlamada::motivos_nombre )%></p>
+				</div>
+			  <div id="extraccion" class="bloquecillo">  </div>
+	  </div>  
+	</div>
+		<div id="reporte_consulta">
+			<%= submit_tag "Consultar" %>
+		</div>
+		<br/>
+		  	<div id="cambiante"></div>
+<%= end_form_tag %>
+
+<%= observe_field ("reporte_rango", :frecuency => 0.5, :with => "rango", 
+		:url => {:action => :cambiar_controles }) %>
+<%= observe_field ("reporte_aspecto", :frecuency => 0.5, :with => "aspecto", 
+		:url => {:action => :esconde_prospecto_producto }) %>

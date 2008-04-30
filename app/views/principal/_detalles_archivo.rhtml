@@ -1,0 +1,29 @@
+<!-- RHTML Precedente(s): _archivo.rhtml -->
+<!-- RHTML Siguiente(s): _controles_archivo.rhtml -->
+<!-- Controlador(es) asociado(s): seguimientos_generales/ ó barra_info/ -->
+<!-- Método(s) asociado(s): adjunta -->
+
+<div id="ia_error"></div>
+<div id="adjuntos">
+<div id=<%= ticket.id.to_s + "adjuntos" %>>
+<% if ticket.adjuntos.blank? %>
+	<div id=<%= ticket.id.to_s + "vacio"%>>
+		<p> No hay archivos adjuntos a éste ticket </p>
+	</div>
+<% else %>
+	<%i = 1%>
+	<% ticket.adjuntos.each do |adjunto| %>
+			<!-- RHTML Siguiente (partial) : pasando el adjunto y un contador para definir la posicion que ocupara -->
+			<%= render :partial => "principal/controles_archivo", :locals => {:adjunto => adjunto, :i => i}%>
+			<%i = i+1%>
+	<% end %>
+<% end %>
+</div>
+<div class="insercion_a">
+<% form_for(:adjunto, :url =>{:controller => "barra_info", :action => :adjunta, :format => 'js'}, :html => { :multipart => true, :target => 'upload_frame'}) do |form| %>
+	<label for="uploaded_data">Adjuntar un archivo:</label>
+	<p><%= form.file_field :uploaded_data %></p>
+	<p><%= submit_tag "Adjuntar" %></p>
+<% end %>
+<iframe id='upload_frame' name="upload_frame" style="width:1px;height:1px;border:0px" src="about:blank"></iframe>
+</div>

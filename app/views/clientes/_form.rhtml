@@ -1,0 +1,93 @@
+<% @cliente = @record %>
+<%= error_messages_for 'cliente' %>
+<!--[form:cliente]-->
+<fieldset id="extendido">  
+<legend><span><%= value %> de Cliente</span></legend>  
+<ol>
+<div id="secciona">  
+<li>
+<label for="cliente_número_de_contrato">Número de contrato</label>
+<%= text_field 'cliente', 'número_de_contrato'  %>
+</li>
+<li>
+<label for="cliente_nombre">Nombre</label>
+<%= text_field 'cliente', 'nombre'  %>
+</li>
+<li>
+<label for="cliente_apellido_paterno">Apellido paterno</label>
+<%= text_field 'cliente', 'apellido_paterno'  %>
+</li>
+<li>
+<label for="cliente_apellido_materno">Apellido materno</label>
+<%= text_field 'cliente', 'apellido_materno'  %>
+</li>
+<li>
+<label for="cliente_calle">Calle</label>
+<%= text_field 'cliente', 'calle'  %>
+</li>
+<li>
+<div id="renglon">
+	<div id="inrenglon">
+
+		<label for="cliente_número_interior">Número interior</label><br/>
+		<%= text_field 'cliente', 'número_interior', "size" => 5  %>
+</div>
+<div id="inrenglon">
+
+		<label for="cliente_número_exterior">Número exterior</label><br/>
+		<%= text_field 'cliente', 'número_exterior', "size" => 5  %>
+</div>
+	
+</div>
+</li>
+<li>
+<label for="cliente_colonia">Colonia</label>
+<%= text_field 'cliente', 'colonia'  %>
+</li>
+</div>
+<div id="secciona">
+<li>
+<label for="cliente_código_postal">Código postal</label>
+<%= text_field 'cliente', 'código_postal'  %>
+</li>
+<li>
+<label for="cliente_teléfono_alo">Teléfono alo</label>
+<%= text_field 'cliente', 'teléfono_alo'  %>
+</li>
+<li>
+<label for="cliente_teléfono_telmex">Teléfono telmex</label>
+<%= text_field 'cliente', 'teléfono_telmex'  %>
+</li>
+<li>
+<label for="cliente_primera_calle_de_referencia">Primera calle de referencia</label>
+<%= text_field 'cliente', 'primera_calle_de_referencia'  %>
+</li>
+<li>
+<label for="cliente_segunda_calle_de_referencia">Segunda calle de referencia</label>
+<%= text_field 'cliente', 'segunda_calle_de_referencia'  %>
+</li>
+<li>
+<label for="cliente_estado">Estado</label><br/>
+<%= select("cliente", "estado", Estado.estados, { :include_blank => true }) %>
+</li>
+<% if not @cliente.nil? %>
+	<% unless @cliente.estado.blank? %>
+		<% @seleccion = Estado.busca_municipios(@cliente.estado) %>
+	<% else %>
+		<% @seleccion = ["SELECCIONA UN ESTADO ANTES"] %>
+	<% end %>
+<% else %>
+	<% @seleccion = ["SELECCIONA UN ESTADO ANTES"] %>
+<% end %>
+<li>
+<div id="localidad">
+<label for="cliente_municipio">Localidad</label><br/>
+<%= select("cliente", "municipio", @seleccion , { :include_blank => true })  %>
+</div><br/>
+</li>
+</div>
+</ol>
+<%= observe_field ("cliente_estado", :frecuency => 0.5, :with => "estado", :url => {:action => :observa_estado }) %>
+</fieldset>  
+<!--[eoform:cliente]-->
+

@@ -1,0 +1,27 @@
+<%= form_remote_tag :url => {:action => :general} %>
+
+	<div class="adorno_forma" id="falla_general"></div> 
+	<div class="reporte_f" id="o_general"> 
+		<div class="renglon_f">  
+			  <div class="bloquecillo">  
+					<% seleccion = ["Todos","Rango de Tiempo","Acumulados de Hoy"]%>
+					<p><b>Tipo de extracción</b></p>
+					<p><%= select(:reporte, "rango", seleccion )%></p>
+				</div>
+				<div class="bloquecillo">  
+					 <% seleccion = ["Orígen de Llamadas","Motivo de Llamada", "Razones de Telefonía", "Razones de Internet", "Razones de Televisión", "No Clasificables", "Ordenes"]%>
+					<p><b>Seleccionar </b></p>
+					<p><%= select(:reporte, "general", seleccion )%></p>
+				</div>
+			  <div id="extraccion" class="bloquecillo">  </div>
+	  </div>  
+	</div>
+		<div id="reporte_consulta">
+			<%= submit_tag "Consultar" %>
+		</div>
+		<br/>
+		  	<div id="cambiante"></div>
+<%= end_form_tag %>
+
+<%= observe_field ("reporte_rango", :frecuency => 0.5, :with => "rango", 
+		:url => {:action => :cambiar_controles }) %>

@@ -1,0 +1,17 @@
+<%= error_messages_for 'llamada' %>
+<%= error_messages_for 'prospecto' %>
+<%= error_messages_for 'falla' %>
+<% if @llamada.class == Falla and @llamada.solución_dada == "Se levantó un ticket" %>
+	<%= error_messages_for 'ticket' %>
+<% end %>
+
+<%= form_remote_tag(:url => {:action => 'create' }) %>
+  <%= render :partial => 'form', :locals => {:value => 'Registro'} %>
+  <div id="falla" style="display:none">
+  	  <div id="ticket" style="display:none"></div>
+  </div>
+
+  <div id="submit">
+   <%= submit_tag "Crear" %>
+  </div>
+<% end_form_tag %>

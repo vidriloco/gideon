@@ -1,0 +1,3 @@
+class Otra < Llamada
+
+end

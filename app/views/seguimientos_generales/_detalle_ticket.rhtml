@@ -1,0 +1,8 @@
+<div id="superiores">
+<%= link_to_remote "Cerrar", :url => {:action => :detalle_ticket, :id  => 'b'} %>
+</div> 
+
+	<% @record = @ticket.llamada.cliente %>
+		<%= render :partial => "principal/cliente", :object => @record %>	
+	<% @record = @ticket.llamada %>
+		<%= render :partial => "principal/llamada", :object => @record %>

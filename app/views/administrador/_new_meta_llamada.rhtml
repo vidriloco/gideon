@@ -1,0 +1,21 @@
+<div id="superiores">
+		<%= link_to_remote "Cerrar", :url => {:action => :oculta_nuevo_x, :id => dom} %>
+</div>
+
+<%= form_remote_tag( :url=> {:action => :create_meta_llamada, :id => opcion}) %>
+  <%= error_messages_for 'meta_llamada' %>
+		<p>
+	<% if opcion == 'num' %>
+			<label for="meta_llamada_numeros">Número</label><br/>
+			<%= text_field 'meta_llamada', 'numeros', :size => 20  %>
+	<% elsif opcion == 'tla' %>
+			<label for="meta_llamada_tipo_de_tipos">Tipo de Llamada</label><br/>
+			<%= text_field 'meta_llamada', 'tipo_de_tipos', :size => 20  %>
+	<% elsif opcion == 'mtv' %>
+			<label for="meta_llamada_m_de_motivos">Motivo</label><br/>
+			<%= text_field 'meta_llamada', 'm_de_motivos', :size => 20  %>
+	<% end %>
+			</p>
+  <%= submit_tag "Guardar" %>
+<% end_form_tag %>
+

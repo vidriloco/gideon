@@ -1,0 +1,7 @@
+<% if ticket.dueno == session[:usuario].nombre_de_usuario %>
+  <% if ticket.abierto %>
+	<h5><b>Abierto </b>- <%= link_to_remote "Cerrar", :url => { :action => :abrir, :id => ticket} %></h5>
+  <% else %>
+	<h5><b>Cerrado </b>- <%= link_to_remote "Abrir", :url => { :action => :abrir, :id => ticket} %></h5>
+  <% end %>  
+<% end %>

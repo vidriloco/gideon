@@ -1,0 +1,36 @@
+<%= error_messages_for 'ticket' %>
+<% @ticket = @ticket || Ticket.new %>
+<!--[form:ticket]-->
+<fieldset id="base">
+<legend><span>Registro de Ticket</span></legend>
+<ol>  
+<li>
+<label for="ticket_enviar_a">Enviar a</label><br/>
+<%= select("ticket", "enviar_a", Usuario.plazas, { :include_blank => true })  %>
+</li>
+<li>
+<label for="ticket_dueno">Dueño</label><br/>
+<% @ticket.dueno = session[:usuario].nombre_de_usuario %>
+<%= hidden_field "ticket", "dueno" %><h5><%= session[:usuario].nombre_de_usuario %></h5>
+</li>
+<div id="secciona">
+<li>
+<label for="ticket_estado">Estado</label><br/>
+<%= select("ticket", "estado", Ticket.estado_ticket, { :include_blank => true }) %>
+</li>
+<li>
+<label for="ticket_prioridad">Prioridad</label><br/>
+<%= select("ticket", "prioridad", Ticket.prioridad, { :include_blank => true }) %>
+</li>
+</div>
+<li>
+<label for="ticket_timestamp">Fecha de Creación</label><br/>
+<%= hidden_field "ticket", "timestamp" %><b style="font-size: 10px;"><%= Time.now.to_s(:long) %></b>
+</li>
+
+<% @ticket.abierto = true %>
+<%= hidden_field "ticket", "abierto" %>
+</ol>
+</fieldset>  
+<!--[eoform:ticket]-->
+

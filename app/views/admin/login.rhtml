@@ -1,0 +1,25 @@
+
+<% content_for :subder do %>
+
+<% end %>
+<% content_for :subizq do %>
+
+<% end %>
+
+<% form_tag :controller => :admin, :action => :login do %>
+<div class="bloque_usuario" id="logeo">
+<div class="a_superior" id="azul"></div>
+<legend><h4>Iniciar Sesión</h4></legend>
+<ol>  
+	<p>
+		<label for="usuario_nombre_de_usuario">Nombre de Usuario</label> <%= text_field 'usuario', 'nombre_de_usuario' -%>
+	</p>
+	<p>
+		<label for="usuario_contraseña">Contraseña</label> <%= password_field 'usuario', 'contraseña' -%>
+	</p>
+</ol>
+</div>
+<div id="submit">
+<%= submit_tag 'Iniciar' -%>
+</div>
+<% end %>

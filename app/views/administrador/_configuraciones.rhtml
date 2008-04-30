@@ -1,0 +1,45 @@
+<div class="bloquecillo_doble">
+		<div id="configuraciones_bloque">
+				<p class="encabezado"><b>Configuración de <%= tipo %></b></p>
+				<% unless tipo.eql? 'Otra' %>
+					<div class="subencabezado"><h5><b>Motivo de Llamada</b></h5></div><!-- termina subencabezado -->
+						<div class="interior_bloque">
+							<% for motivo in MetaLlamada::motivos_nombre %>
+						  	<div id=<%= "#{motivo}_#{tipo}_motivo" %>>
+								  <%= link_to_remote "#{motivo}", 
+								    :url => {:action => :ver_lista, :id => "#{motivo}:#{tipo}:m"} %>
+			    			</div>
+							<% end %>
+						</div><!-- termina interior_bloque -->
+						<p>
+							<%= link_to_remote "Agregar nuevo motivo", 
+									:url => {:action => :new_meta_configuracion, :id => "#{tipo}:m"} %>
+						</p>
+						<div id=<%= "motivo" + tipo %>></div>
+					<% end %><!-- Termina el unless -->
+					<div class="subencabezado"><h5><b>Resultado de Llamada</b></h5></div>
+					<div class="interior_bloque">
+						<% if tipo.eql? 'Otra' %>
+							<% for elemento in MetaLlamada.configuraciones_busqueda(5, tipo) %>
+								<h5>
+								<%= elemento.resultado %>
+							  <%= link_to_remote "Eliminar", :url => {:action => :destroy_meta_llamada, :id => elemento}, 
+										:confirm => "¿Estás seguro?" %>
+								</h5><br/>
+						  <% end %>
+						<% else %>
+							<% for motivo in MetaLlamada::motivos_nombre %>
+						  	<div id=<%= "#{motivo}_#{tipo}_resultado" %>>
+								  <%= link_to_remote "#{motivo}", 
+								 		:url => {:action => :ver_lista, :id => "#{motivo}:#{tipo}:r"} %>
+			    			</div>
+							<% end %>
+						<% end %>
+					</div><!-- termina interior_bloque -->
+					<p>
+						<%= link_to_remote "Agregar nuevo resultado", 
+								:url => {:action => :new_meta_configuracion, :id => "#{tipo}:r"} %>
+					</p>
+				<div id=<%= "resultado" + tipo %>></div><!-- termina nueva_meta_resultado -->
+		</div><!-- termina estados_bloque -->
+</div><!-- termina bloquecillo -->

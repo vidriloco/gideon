@@ -1,0 +1,25 @@
+<%= error_messages_for 'usuario' %>
+<% @usuario = Usuario.new %>
+<%= form_remote_tag :url => { :action => :register } %>
+<div class="bloque_registro" id="registro">
+<div class="a_superior" id="verde"></div>
+<ol>  
+	<p>
+		<label for="usuario_nombre_de_usuario">Nombre de Usuario</label> <%= text_field 'usuario', 'nombre_de_usuario' -%>
+	</p>
+	<p>
+		<label for="usuario_contraseña">Contraseña</label> <%= password_field 'usuario', 'contraseña' -%>
+	</p>
+	<p>
+		<label for="usuario_contraseña_confirmation">Confirmación de Contraseña</label> <%= password_field 'usuario', 'contraseña_confirmation' -%>
+	</p>
+	<p>
+		<label for="usuario_rol">Tipo de Cuenta</label> <%= select("usuario", "rol", Rol.nombres, { :include_blank => true }) %>
+	</p>
+</ol>
+</div>
+<div id="submit">
+<%= submit_tag 'Guardar' -%>
+</div>
+<%= end_form_tag %>
+

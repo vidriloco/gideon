@@ -1,0 +1,14 @@
+<h3>Búsqueda General de Tickets</h3>
+
+<div id="barra_busqueda">
+	<p><h5>Búsqueda por: </h5>
+	<%= link_to_remote "Título", :url => {:action => 'controles_busqueda', :id=> 'a'} %>
+   <%= link_to_remote "Fecha", :url => {:action => 'controles_busqueda', :id=> 'b'} %>
+	<%= link_to_remote "Responsable", :url => {:action => 'controles_busqueda', :id=> 'c'} %>
+		 </p>
+</div>
+
+<div id="opciones_busqueda", style="display:none"></div>
+
+<div id="resultados"></div>
+

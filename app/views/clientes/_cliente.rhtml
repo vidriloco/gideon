@@ -1,0 +1,35 @@
+<table>
+  <tr>
+  	 <th>Número de Contrato</th>
+    <th>Nombre(s)</th>
+    <th>Apellido Paterno</th>
+    <th>Apellido Materno</th>
+    <th>Teléfono Telmex</th>
+    <th>Teléfono Alo</th>
+    <th>Estado</th>
+    <th>Municipio</th>
+  </tr>
+<% i = 0%>
+<% for c in @clientes %>
+  <% if i.odd? %>
+  		<tr class="odd">
+  <% else %>
+  		<tr class="even">
+  <% end %>
+  	 <td><%= c.número_de_contrato %></td>
+    <td><%= c.nombre %></td>
+    <td><%= c.apellido_paterno %></td>
+    <td><%= c.apellido_materno %></td>
+    <td><%= c.teléfono_telmex %></td>
+    <td><%= c.teléfono_alo %></td>
+    <td><%= c.estado %></td> 
+    <td><%= c.municipio %></td>
+	 <td id="plano">
+		 <%= link_to 'Llamadas', :controller => 'llamadas', :action => 'list', :id => c %>  
+		 <%= link_to_remote 'Detallar', :url => {:action => 'show', :id => c} %>
+   	 <%= link_to_remote 'Modificar', :url => {:action => 'edit', :id => c} %>
+	 </td>
+  </tr>
+ <%i = i+1 %>
+<% end %>
+</table> 

@@ -1,0 +1,7 @@
+<div id="seccion_o">
+	<div id="superiores">
+		<%= link_to_remote "Atrás", :url => {:action => :desde_barra, :id => ticket} %>
+		<%= link_to_remote "Cerrar", :url => {:action => :cierra_abierto_barra, :id =>  "vistaprev_ticket" } %>
+	</div>
+	<%= render :partial => "principal/detalles_archivo", :locals => {:ticket => ticket}  %>
+</div>

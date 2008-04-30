@@ -1,0 +1,28 @@
+<div id="mensaje_division">
+	<div id="superiores">
+		<%= link_to_remote 'Cancelar', :url => {:action => :msg_esconde, :id => ticket} %>
+	</div>
+<%= form_remote_tag( :url=> {:action => :create_msg})  %>
+	<p>
+		<h5><b>Fecha: </b><%= @historial.fecha.to_s(:long) %></h5>
+	</p>
+	<% @historial.dueno = session[:usuario].nombre_de_usuario %>
+	<%= hidden_field "historial", "dueno" %>
+	<p>
+		<h5><b>Dueño: </b><%= session[:usuario].nombre_de_usuario %></h5>
+	</p>
+	<p>
+		<h5><b>Mensaje: </b></h5>
+		<br/>
+	</p>
+	<br/>
+	<%= text_area "historial", "mensaje", "cols" => 75, "rows" => 5 %>
+
+	<% @historial.ticket_id = ticket %>
+	<%= hidden_field "historial", "ticket_id" %>
+ <div id="submit_sin">
+  <%= submit_tag "Crear" %>
+ </div>
+
+<% end_form_tag %>
+</div>

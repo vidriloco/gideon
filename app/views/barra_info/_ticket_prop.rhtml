@@ -1,0 +1,44 @@
+
+	<div id="superiores">
+		<%= link_to_remote "Adjuntar Archivo", :url => 
+                    {:action => :archivos_ticket, :id => ticket} %>
+		<%= link_to_remote "Mensajes", :url => 
+                    {:action => :mensajes_en_barra, :id => ticket} %>
+    <%= link_to_remote "Modificar", :url => 
+                    {:action => :edit_ticket, :id => ticket} %>
+    <%= link_to_remote "Cerrar", :url => 
+                    {:action => :cierra_abierto_barra, :id =>  "vistaprev_ticket" } %>
+ 		<%= link_to_remote "+ Datos", :url => {:action => :mas_datos_de_ticket, :id => ticket} %>
+	</div>
+	
+	<div id="inferiormsg">
+		<div id="bloque_interior">
+		  <h5>
+		  <b>Título: </b><%=h ticket.llamada.concepto_de_la_llamada %><br/>
+		  <b>Asignado a: </b>
+		  <% if ticket.enviar_a.blank? %>	
+		  		<%= "---" %>
+		  <% else %> 
+		  		<%= ticket.enviar_a %>
+		  <% end %><br/>
+
+		  <b>Dueño: </b><%=h ticket.dueno %></p></h5>
+		</div>
+		<div id="bloque_interior"> 
+		  <h5><b>Estado: </b><%=h ticket.estado %><br/>
+		  <b>Prioridad: </b><%=h ticket.prioridad %><br/>
+		  <!-- <b>Archivo adjunto: </b><%=h ticket.adjunto %> -->
+		  <b>Fecha: </b><%=h ticket.timestamp.to_s(:long) %></h5>
+		</div>
+		<div id="bloque_interior">
+		  <div id="abierto">
+			<%= render(:partial => 'abierto', 
+                        :locals => { :ticket => ticket }) %>
+		  </div>
+		   <div id="marcado">
+			<%= render(:partial => 'marcado', 
+                        :locals => { :ticket => ticket }) %>
+		  </div>
+		</div>
+	</div>
+

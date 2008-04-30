@@ -1,0 +1,14 @@
+
+	<% content_for :subizq do %>
+   	<p>
+   	<%= link_to_remote 'Todos los Tickets', :url=> { :action => :mixto, :id => 'a'} %>
+  	   <%= link_to_remote 'Abiertos & Cerrados', :url => {:action => :mixto, :id => 'b'} %>
+  	   <%= link_to_remote 'Búsqueda', :url => {:controller => 'seguimientos_generales', :action => :busqueda} %></p>
+  	<% end %>
+	<div id="seccion">
+		<h4 align="center">Selecciona alguna de las opciones de la barra superior</h4>
+	</div>
+	<br/>
+	<div class="seccion" id="show" style="display:none"> </div>
+<br />
+

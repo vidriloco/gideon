@@ -1,0 +1,27 @@
+<div id="seccion_o">
+<div id="superiores">
+<%= link_to_remote "Atrás", :url => {:action => :desde_barra, :id => ticket} %>
+<%= link_to_remote "Responder", :url => {:action => :nuevo_msg, :id => ticket} %>
+<%= link_to_remote "Cerrar", :url => 
+                    {:action => :cierra_abierto_barra, :id =>  "vistaprev_ticket" } %>
+</div>
+	<div id="forma"></div>
+	<div id="inferiormsg">
+	<% if @historiales.length > 0 %>	
+		
+			<% for historial in @historiales %>
+				<div id=<%="compuesto" + historial.id.to_s + historial.ticket_id.to_s + ">" %>
+					<p>
+					  <b><%= historial.fecha.to_s(:long) %></b> <%= historial.mensaje %>
+					  </p>
+				</div>
+			<% end %>
+
+	<% else %>
+		<div id="msgvacio">
+			<p><h5>No hay mensajes para éste ticket, pero puedes agregar uno 
+			<%= link_to_remote "nuevo", :url => {:action => :nuevo_msg, :id => ticket} %> </h5></p>
+		</div>
+	<% end %>
+	</div>
+</div>

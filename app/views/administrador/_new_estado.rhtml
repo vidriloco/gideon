@@ -1,0 +1,15 @@
+
+<div id="superiores">
+		<%= link_to_remote "Cancelar", :url => {:action => :oculta_nuevo_x, :id => "nuevo_estado"} %>
+</div>
+
+<%= form_remote_tag( :url=> {:action => :create_estado}) %>
+  <%= error_messages_for 'estado' %>
+	<p>
+			<label for="estado_estado">Estado</label><br/>
+			<%= text_field 'estado', 'estado'  %>
+	</p>
+  <%= submit_tag "Guardar" %>
+<% end_form_tag %>
+
+

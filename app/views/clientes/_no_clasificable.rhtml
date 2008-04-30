@@ -1,0 +1,12 @@
+<div id="superiores">
+	<%= link_to "Cliente", :action => 'list' %>
+</div> 
+
+<%= form_remote_tag(:url => {:controller => :llamadas, :action => 'create' }) %>
+	<div id="remplazable">
+  	<%= render :partial => 'principal/form_no_clasificable' %>
+  </div>
+  <div id="submit">
+   <%= submit_tag "Crear" %>
+  </div>
+<% end_form_tag %>

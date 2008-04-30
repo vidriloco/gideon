@@ -1,0 +1,61 @@
+
+<div class="auxiliar" id="superiores">
+	<%= link_to_remote "Cerrar", :url => 
+                    {:action => :cierra_abierto_barra, :id => "conjunto_tickets"} %>
+</div>
+
+<div id="inferiormsg">
+		<% @tickets = @elementos[:items] %>
+		<h4 class="encabezado">Tickets <%= value %></h4><br/>
+		<% if @tickets.length == 0 %>
+			<div id="vacio">
+					<p>No hay tickets <%= value %><p>
+			</div>
+		<% else %>
+			<div class="centrado" id="iu">
+				<table>
+     		  <tr>
+  	 		 	  <th>Tipo de Falla</th>
+				    <th>Estado</th>
+				    <th>Prioridad</th>
+				    <th>Fecha</th>
+				    <th>Asignado a Plaza</th>
+  				</tr>
+     		<% i = 0%>
+ 	        <% for ticket in @tickets %>
+     				<% if i.odd? %>
+  						<tr class="odd">
+  					<% else %>
+  						<tr class="even">
+  					<% end %>
+  				<td><%= link_to_remote "#{ticket.llamada.concepto_de_la_llamada}", 
+  								 :url => {:controller => 'barra_info',
+	        		 :action => :desde_barra, :id=> ticket} %></td>
+  				<td><%= ticket.estado %></td>
+  				<td><%= ticket.prioridad %></td>
+  				<td><%= ticket.timestamp.to_s(:long) %></td>
+  				<td><%= ticket.dueno %></td>
+  				</tr>
+  				<% i= i+1 %>
+  				<% end %>
+     		</table>
+			</div>
+   		<% end %>
+
+<% @elemento_pages = @elementos[:item_pages] %>
+<div id="inferiores">
+	<div id="inferiores_izq">
+		<h5><%= pagination_links_remote_no_update @elemento_pages %></h5>
+	</div>
+	<div id="inferiores_der">
+		<% if @elemento_pages.item_count == 0 %>
+		<h5>Mostrando 0 - <%= @elemento_pages.current_page.last_item %>
+			  de <%= @elemento_pages.item_count %> elementos.</h5>
+		<% else %>
+		<h5>Mostrando <%= @elemento_pages.current_page.first_item %> - <%= @elemento_pages.current_page.last_item %>
+			  de <%= @elemento_pages.item_count %> elementos.</h5>
+		<% end %>
+	</div>
+</div>
+</div>
+

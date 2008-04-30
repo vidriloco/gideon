@@ -1,0 +1,14 @@
+
+<%= error_messages_for 'municipio' %>
+	<div id="superiores">
+		<%= link_to_remote "Cancelar", :url => {:action => :oculta_nuevo_municipio, :id => estado } %>
+	</div>
+<%= form_remote_tag(:url =>{ :action => :create_municipio}) %>
+<p>
+<p><b>Municipio </b><%= text_field 'municipio', 'localidad'  %></p>
+</p>
+	<% @municipio.estado_id = estado %>
+	<%= hidden_field "municipio", "estado_id" %>
+  <%= submit_tag "Guardar" %>
+<% end_form_tag %>
+

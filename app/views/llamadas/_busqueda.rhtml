@@ -1,0 +1,10 @@
+<div id="superiores">
+<%= link_to_remote "Cerrar", :url => {:action => :cierra_resultados, :id  => 'resultados'} %>
+</div> 
+  <br/><div id="resultados1"><b><%= @llamada_pages.item_count %></b><p>encontrados</p></div> <br/>
+  <div id="res">
+  		<%= render :partial => 'llamada', :llamada => @llamadas %>
+  </div>
+  <% @elemento_pages = @llamada_pages %>
+  
+	<%= render :partial => "principal/paginacion" %>

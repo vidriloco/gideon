@@ -1,0 +1,8 @@
+<% if prospecto_s %>
+	<label for="llamada_paquete">Paquete </label><br/>
+	<%= select("llamada", "paquete", ProspectoPaquete::paquetes_con_nombre_de(prospecto_s),
+			{ :include_blank => true }) %>
+<% else %>
+	<label for="llamada_paquete">Paquete</label><br/>
+	<%= select("llamada", "paquete", ["SELECCIONA UN TIPO DE SERVICIO"])  %>
+<% end %>

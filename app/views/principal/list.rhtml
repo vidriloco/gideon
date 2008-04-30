@@ -1,0 +1,66 @@
+<!-- Despliega opciones de navegación en un bloque situado en la parte superior derecha de la página -->
+<% content_for :subder do %>
+	<% if @model == Llamada %>
+  <p class="textoizq"><b>Agente:</b> 
+  <%= session[:usuario].nombre_de_usuario %>
+  <div class="icono_barra_p">
+  	<%= link_to image_tag("iconos/salir.png", :size => "25x20", :alt => "Salir", :border=>0), :controller => 'admin', :action => 'logout' %>
+  <%= link_to image_tag("iconos/atras.png", :size => "22x22", :alt => "Atrás", :border=>0), :controller => 'clientes', :action => 'list'%>
+  </div>
+  </p>
+  <% else %>
+  <p><b>Agente:</b> 
+  <%= session[:usuario].nombre_de_usuario %>
+  <div class="icono_barra_p"> 
+  <%= link_to image_tag("iconos/salir.png", :size => "25x20", :border => 0), :controller => 'admin', :action => 'logout' %>
+  </div>
+  </p>
+  <% end %>
+<% end %>
+<% content_for :subizq do %>
+<%= periodically_call_remote(:update => "notificador_msg", :frequency => 20, :url => {:controller => 'principal', :action => 'encuentra_rec'}) %>
+
+<div id="notificador_msg">
+ <% @mensajes = Historial.dosis_mensajes %>
+ <% if @mensajes.blank? %>
+ 	<p><b>No hay mensajes aún</b></p>
+ <% else %>
+	 <%= render :partial => "principal/msg_recientes", :object => @mensajes %>
+ <% end %>
+</div>
+<% end %>
+
+<% content_for :barra_info do %>
+<%= periodically_call_remote(:update => "actualizable", :frequency => 10, :url => {:controller => 'barra_info', :action => 'barra_informativa'}) %>
+					<div id="actualizable">
+							<%= render :partial => "barra_info/barra" %>
+					</div>
+<% end %> 
+
+<div class="seccion" id="vistaprev_ticket" style="display:none"></div>
+
+<div class="seccion" id="busqueda">
+<fieldset id="buscar">
+<div class="adicional"><%= image_tag("iconos/busqueda.png", :size => "25x25", :border => 0) %></div>
+		<%= text_field_tag :searchtext %>
+<img alt="spinner" id="spinner" src="/images/espera.gif" style="display:none;" />
+</fieldset>
+<%= observe_field(:searchtext,
+                 :frequency => 1, 
+                 :loading => "Element.show('spinner')",
+                 :complete => "Element.hide('spinner')",
+                 :url => { :action => :busqueda, :only_path => false },
+                 :with => "'search=' + encodeURIComponent(value)") %>
+
+</div>
+
+<div class="seccion" id="resultados" style="display:none"> </div>
+<div class="seccion" id="conjunto_tickets" style="display:none"></div>
+<div class="seccion" id="show" style="display:none"> </div>
+<div class="seccion" id="forma">
+<%= render :partial => "new" %>
+</div>
+<div class="">
+<br/>
+<div class="seccion" id="aviso" style="display:none"></div>
+

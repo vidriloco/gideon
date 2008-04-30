@@ -1,0 +1,502 @@
+fieldset {  
+display:block;
+position: relative; 
+float: center;  
+margin-top:1em;
+padding: 0 0 1em 0;  
+border-style: none;  
+}
+legend {   
+padding: 0;  
+color: #000;  
+font-weight: bold; 
+font-size:15px;
+}
+fieldset ol {  
+padding: 2em 1em 0 1em;  
+list-style: none; 
+}
+fieldset li {  
+text-align: left;
+float: left;  
+clear: left;  
+width: 50%; 
+padding-bottom: 1em;
+}
+fieldset li.anchura{
+	width:90%;
+}
+#renglon{
+display: inline;
+}
+#inrenglon{
+display: table-cell;
+padding-right: 7px;
+}
+#extendido{
+margin-left: auto;
+margin-right: auto;
+width: 92%;
+background-color: #F2EFE9; 
+border: 1px solid #BFBAB0;
+}
+#localidad{
+display: inline;
+width:20%;
+position:absolute;
+}
+#secciona{
+display: table-cell;
+}
+
+label {  
+display: block;
+float: left;  
+width: 15em;  
+margin-right: 0px; 
+font-size: 10px;
+}
+legend span {  
+position: absolute;  
+margin-left: 1.5em;  
+top: 0;  
+margin-top: 0.5em;  
+font-size: 120%; 
+}
+
+#show{
+padding: 7px;
+}
+
+#submit {
+float: center;  
+margin-left: auto;
+margin-right: auto;
+width: 9%;
+text-align: center;
+margin-top:1em;
+padding:  1em 3.5em;  
+border-style: none;  
+border: 1px solid #BFBAB0;
+}
+#submit_sin{
+margin-left: 474px;
+width: 9%;
+text-align: center;
+padding: 6px;
+}
+
+#submit a{
+text-align: right;
+}
+
+input, select, textarea{
+border: 1px solid gray;
+background: #FFF495;
+}
+
+#mensajeador{
+ color: #825858;
+ font-size: 14px;
+ text-align: center;
+ display: block;
+ padding: 0;
+}
+
+#base{
+margin-left: auto;
+margin-right: auto;
+width: 58%;
+background-color: #DEDBC9; 
+border: 1px solid #9E9E9E;
+}
+
+.bloque_usuario{
+margin-left: auto;
+margin-right: auto;
+margin-top: 26px;
+width: 50%;
+text-align: center;
+}
+
+#logeo{
+background-color: #D3D6E6; 
+border: 1px solid #556E9E; 
+}
+
+.a_superior{
+display: block;
+padding: -2px;
+padding-bottom: 6px;
+height: 25px;
+width: 100%;
+}
+
+#azul{
+background-image: url(../images/azul_stripe.png);
+background-repeat: repeat-x repeat-y;
+}
+
+#verde{
+background-image: url(../images/verde_stripe.png);
+background-repeat: repeat-x repeat-y;
+}
+
+#amarillo{
+background-image: url(../images/amarillo_stripe.png);
+background-repeat: repeat-x repeat-y;
+}
+
+#resultados2{
+margin-left: auto;
+margin-right: auto;
+text-align: center;
+width: 60%;
+padding: 9px;
+position: relative; 
+float: center;  
+margin-top:1em; 
+border-style: none;  
+background-color: #F2D8D0; 
+border: 1px solid #BFBAB0;
+}
+#resultados1{
+margin-left: auto;
+margin-right: auto;
+text-align: center;
+width: 20%;
+padding-top: 3px;
+float: center;
+border-style: none;  
+background-color: #EFF7C2; 
+border: 1px solid #BFBAB0;
+}
+
+
+#insubder{
+display:table-cell;
+padding-right: 4px;
+padding-bottom:7px;
+width:300px;
+margin-left:auto;
+
+}
+
+#insubizq{
+display:table-cell;
+padding-top: 3.4px;
+padding-left: 4px;
+width:865px;
+margin-right:auto;
+}
+
+#insubder p{
+text-align: center;
+padding: 2px;
+border-style: none;  
+border-left: .3px solid #DFA4A4;
+}
+
+#insubizq p{
+text-align: center;
+padding: 2px;
+
+}
+
+#msgfecha{
+display:table-cell;
+padding: 0px;
+width:200px;
+margin-left:auto;
+}
+
+#msg{
+display:table-cell;
+padding: 0px;
+width:500px;
+margin-right:auto;
+}
+
+#separador{
+border: .1px solid #EDD8B1;
+}
+
+#mensaje_division{
+display: block;
+padding: 5px;
+margin-top: 5px;
+border-top: 1px solid #D9D7D7;
+margin-bottom: 5px;
+border-bottom: 1px solid #D9D7D7;
+text-align: left;
+padding-left: 10px;
+}
+
+#ticket{
+padding-bottom: 8px;
+}
+
+#ticket h6, h5{
+padding: 1px;
+margin: 0;
+display: inline;
+}
+
+#ticketo{
+	margin-top: 117px;
+	border: .3px solid #F8B893;
+	text-align: center;
+}
+
+div.seccion{
+	display:block;
+	float: center; 
+	margin-right: 330px;
+	margin-top:1em;  
+	background-color: #FFF; 
+	border: 1px solid #DBD7D6;
+}
+
+#resultados, #forma {
+	padding: 9px;
+}
+
+#cliente_detalla{
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-bottom: 15px;
+	text-align: center;  
+	height:auto;
+	background-color: #E7E9EE; 
+}
+
+#seccion h2{
+	display: inline;
+	width: 40%;
+	padding: 6px;
+}
+
+#seccion h3{
+	width: 80%;
+	padding-bottom: 4px;
+	font-weight: bold;
+}
+#busqueda{
+	padding:3px;
+}
+#buscar{
+	display:inline;
+	text-align: center;
+	margin-left: 480px;
+	width: 40px;
+	padding: 3px;
+	padding-left:2px;
+	background-color: #F2EFE9; 
+	border: 1px solid #BFBAB0;
+}
+
+/* Definiciones para los elementos que embellecen la vista previa de un ticket,
+   accediendo desde la barra de información */
+   
+#vistaprev_ticket{
+padding: 1px; 
+}
+#inferiormsg{
+display: table;
+padding: 10px;
+}
+#bloque_interior{
+display: table-cell;
+padding-left: 40px;
+padding-right: 40px;
+}
+#inferiormsg h4{
+padding:4px;
+margin: 4px;
+text-align: center;
+}
+
+/* Se usa dentro de div's : seccion, seccion_o - Su uso es para definir el espacio de opciones en cada vista ajaxizada*/
+#superiores{
+display:block;
+width:99%;
+text-align: right;
+border-bottom: 1px solid  #DEDEDE;
+padding-bottom: 3px;
+padding-right: 3px;
+}
+
+#inferiores{
+padding-top: 5px;
+display; table;
+margin-top:auto;
+width: 99%;
+}
+
+#inferiores_der{
+display:table-cell;
+border-bottom: 1px solid  #DEDEDE;
+width: 300px;
+margin-right:auto;
+text-align: right;
+}
+#inferiores_izq{
+display:table-cell;
+border-bottom: 1px solid  #DEDEDE;
+margin-left:auto;
+width: 500px;
+text-align: left;
+}
+
+#msgvacio{
+text-align: center;
+padding: 15px;
+}
+
+/* Sección relacionada con la búsqueda general de tickets */
+#barra_busqueda{
+display: block;
+text-align: center;
+height:18px;
+border: 1px solid  #DEDEDE;
+background-color: #EEF6F3;
+padding:1px;
+width: auto;
+}
+
+#barra_busqueda p{
+display:inline;
+float: center;
+}
+/* Sección relacionada con el despliege de opciones de busqueda general por tickets */
+#opciones_busqueda{
+display: block;
+height:auto;
+margin-top: 1px;
+padding:10px;
+width:790px;
+border: 1px solid  #DEDEDE;
+background-color: #E6F7D4;
+}
+
+#aviso{
+background-color: #E2E9E6;
+border: 1px solid  #7CCAAF;
+}
+#aviso p{
+text-align: center;
+}
+
+p.comentario{
+background-color: #EBEEDC;
+border: 1px solid #E9F0BA;
+}
+/* Describe el estilo de cada conjunto o sección presente en la barra informativa */
+div.barra_secc{
+	text-align: center;
+}
+#barra_informacion{
+	display:block;
+	margin-left: 860px;
+	border: 1px solid #D4D7E2;
+	width:270px;
+	height:auto;
+	position: absolute;
+	padding:6px;
+	margin-top:16px; 
+	padding-bottom: 8px;
+	padding-top: 0;
+}
+
+#tickets p{
+	padding: 0;
+}
+
+#vacio{
+	background-color: #EEF7F5;
+	text-align: center;
+	margin-top:-16px;
+	padding-bottom: 3px;
+}
+.encabezado{
+	padding: 5px;
+	padding-left: 35px;
+	text-align: left;
+	background-image: url(../images/gris-claro.png);
+	background-repeat: repeat-x repeat-y;
+}
+.encabezado a{
+	color: black;
+	font-size: 14px;
+	font-weight: normal;
+	text-transform: uppercase;
+}
+
+.subencabezado{
+	height: 15px;
+	margin-top: 1px;
+	padding: 1px;
+	color: white;
+	text-align: center;
+	background-image: url(../images/azul_claro_stripe.png);
+	background-repeat: repeat-x repeat-y;
+}
+
+.auxiliar{
+	padding-top:5px;
+}
+.auxiliar-seccion{
+	margin-top:10px;
+}
+.centrado{
+  margin-left: 130px;
+}
+
+.seccion_l{
+	width: 90%;
+	border: 1px solid #E9F0BA;
+}
+.insercion_a{
+	padding: 20px;
+}
+#adjuntos{
+	border: 1px solid  #DEDEDE;
+	margin:15px;
+	background: #F6F7E4;
+}
+
+.archivo_error{
+	width: 95%;
+	padding: 3px;
+	margin-top: 5px;
+	margin-left: auto;
+	margin-right: auto;
+	background: #FFDDD7;
+	border: 1px solid #EF8774;
+	text-align: center;
+	color: red;
+}
+.adicional{
+	display: table-column;
+	float: left;
+	vertical-align: text-top;
+}
+
+.icono_encabezado{
+	position: absolute; 
+	left:10px;
+}
+.icono_barra_p{
+	position: absolute;
+	right:70px;
+	top: 100px;
+}
+.icono_mime{
+	display:inline;
+	float: left;
+	margin-left: 10px;
+	padding-right: 5px;
+	vertical-align: text-bottom;
+}
+
+

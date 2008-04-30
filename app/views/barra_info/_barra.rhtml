@@ -1,0 +1,55 @@
+		<% @objetos = BarraInfoController.arranque %>
+
+		<% @tickets = @objetos[:hoy] %>
+				<div class="barra_secc">
+					<h3 class="encabezado">
+					<div class="icono_encabezado">
+						<%= image_tag("iconos/hoy.png", :size => "23x23", :border => 0) %>
+					</div>
+						<%= link_to_remote "Tickets de Hoy" , 
+						:url => {:controller => "barra_info", :action => :expande_seccion, :id => 'a'} %>
+					</h3>
+					<div id="hoy">
+						<%= render :partial => "barra_info/tickets_barra", :object => @tickets %>
+					</div>
+				</div>
+
+		<% @tickets = @objetos[:ayer] %>	
+		  <div class="barra_secc">
+			  <h3 class="encabezado">
+			  	<div class="icono_encabezado"><%= image_tag("iconos/ayer.png", :size => "20x20", :border => 0) %></div>
+			  	<%= link_to_remote "Tickets de Ayer" , :url => {:controller => "barra_info", 
+			  																					:action => :expande_seccion, :id => 'b'} %>
+			  </h3>
+				<div id="ayer">
+					<%= render :partial => "barra_info/tickets_barra", :object => @tickets %>
+				</div>
+      </div>
+
+
+<% @tickets = @objetos[:urgentes] %>
+		  <div class="barra_secc">
+			  <h3 class="encabezado">
+		  		<div class="icono_encabezado"><%= image_tag("iconos/urgente.png", :size => "25x25", :border => 0) %></div>
+			  	<%= link_to_remote "Tickets Urgentes" , :url => {:controller => "barra_info", 
+			  																					 :action => :expande_seccion, :id => 'c'} %>
+			  </h3>
+				<div id="urgentes">
+					<%= render :partial => "barra_info/tickets_barra", :object => @tickets %>
+				</div>
+      </div>
+
+
+  
+  <% @tickets = @objetos[:marcados] %>
+		  <div class="barra_secc">
+			  <h3 class="encabezado">
+			  	<div class="icono_encabezado"><%= image_tag("iconos/marcado.png", :size => "20x20", :border => 0) %></div>
+			  	<%= link_to_remote "Tickets Marcados" ,:url => {:controller => "barra_info", 
+			  	:action => :expande_seccion, :id => 'd'} %>
+			  </h3>
+			  <div id="marcados">
+			  	<%= render :partial => "barra_info/tickets_barra", :object => @tickets %>
+			  </div>
+      </div>
+

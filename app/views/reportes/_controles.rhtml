@@ -1,0 +1,10 @@
+<% if opcion == 'a'%>		
+		<p><b>Fecha Inicial</b></p>
+		<p><%= date_select(:reporte, "inicio", :start_year => 2007) %></p>
+		<p><b>Fecha Final</b></p>
+		<p><%= date_select(:reporte, "final", :start_year => 2007) %></p>
+	</ol>
+<% else %>
+		<p><b>Hoy</b></p>
+		<i style="font-size: 10px;"><%= Date.today.to_s(:long) %></i>
+<% end %>

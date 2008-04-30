@@ -1,0 +1,9 @@
+<div id="superiores">
+<%= link_to_remote "Cerrar", :url => {:action => :cierra_resultados, :id  => 'resultados'} %>
+</div> 
+  <br/><div id="resultados1"><b><%= @clientes.length %></b><p>encontrados</p></div> <br/>
+  <table>
+  		<%= render :partial => 'cliente', :cliente => @clientes %>
+  </table>
+  
+

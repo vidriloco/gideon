@@ -1,0 +1,21 @@
+<!-- RHTML Precedente: _detalles_archivo.rhtml -->
+<!-- Controlador(es) asociado(s): seguimientos_generales/ ó barra_info/ -->
+<!-- Método(s) asociado(s): descarga, elimina -->
+	
+	<div id=<%= adjunto.filename + adjunto.id.to_s %>>
+		<p><b>Archivo <%= i %>: </b></p>
+		<% if adjunto.content_type.eql? 'application/pdf' %>
+		   <div class="icono_mime"><%= image_tag("iconos/pdf.png", :size => "25x25", :border => 0) %></div>
+		<% elsif adjunto.content_type.eql? 'application/vnd.ms-excel' or adjunto.content_type.eql? 'application/vnd.oasis.opendocument.spreadsheet' %>
+		   <div class="icono_mime"><%= image_tag("iconos/excel.png", :size => "25x25", :border => 0) %></div>
+		<% elsif adjunto.content_type.eql? 'application/msword' or adjunto.content_type.eql? 'application/vnd.oasis.opendocument.text' %>
+		   <div class="icono_mime"><%= image_tag("iconos/word.png", :size => "25x25", :border => 0) %></div>
+		<% elsif adjunto.content_type.eql? 'text/plain' %>
+		   <div class="icono_mime"><%= image_tag("iconos/text.png", :size => "25x25", :border => 0) %></div>
+		<% end %>
+		<p><%= adjunto.filename %>
+	    <%= link_to "Descargar", :controller => "barra_info", :action => :descarga, :id => adjunto.db_file_id -%>
+	    (<%= link_to_remote "Borrar", :url => {:controller => "barra_info", :action => :elimina_adjunto, :id => adjunto}, :confirm => "¿Estás seguro?" %>)
+	    
+		</p>
+	</div>

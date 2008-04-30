@@ -1,0 +1,21 @@
+<p><%= link_to_remote "#{motivo}", :url => {:action => :esconde_lista, :id => "#{motivo}:#{tipo}:#{mor}"} %></p>
+
+<div id=<%= "#{motivo}_listado" %>>
+<% unless @meta_llamadas.blank? %>
+<% for elemento in @meta_llamadas %>
+	<div>
+		<h5>
+			<% if mor == 'r' %>
+				<%= elemento.resultado %>		
+			<% else %>
+				<%= elemento.razon %>
+			<% end %>
+			<%= link_to_remote "Eliminar", :url => {:action => :destroy_meta_llamada, :id => elemento}, :confirm => "¿Estás seguro?" %>
+		</h5>
+	</div>
+<% end %>
+<% else %>
+	<h5>Ho hay subfallas para <b><%= motivo %></b> aún</h5>
+<% end %>
+</div>
+<br/>

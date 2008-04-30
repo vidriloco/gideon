@@ -1,0 +1,29 @@
+<%if cv == 'a' %>
+<h5>Búsqueda por Título</h5><br/>
+	<fieldset id="buscar">
+	<label for="searchtext">Búsqueda:</label>
+	<%= text_field_tag :searchtext %>
+	<img alt="spinner" id="spinner" src="/images/espera.gif" style="display:none;" />
+	</fieldset>
+<% elsif cv == 'b' %>
+<h5>Búsqueda por Fecha</h5><br/>
+	<fieldset id="buscar">
+	<label for="searchtext">Búsqueda:</label>
+	<%= text_field_tag :searchtext %>
+	<img alt="spinner" id="spinner" src="/images/espera.gif" style="display:none;" />
+	</fieldset>
+<% else %>
+<h5>Búsqueda por Responsable</h5><br/>
+	<fieldset id="buscar">
+	<label for="searchtext">Búsqueda:</label>
+	<%= text_field_tag :searchtext %>
+	<img alt="spinner" id="spinner" src="/images/espera.gif" style="display:none;" />
+	</fieldset>
+<% end %>
+
+<%= observe_field(:searchtext,
+                 :frequency => 0.5,
+                 :update => :search_hits,
+                 :loading => "Element.show('spinner')",
+                 :complete => "Element.hide('spinner')",
+                 :url => { :action => :busqueda }) %>

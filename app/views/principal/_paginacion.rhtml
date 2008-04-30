@@ -1,0 +1,14 @@
+<div id="inferiores">
+	<div id="inferiores_izq">
+		<h5><%= pagination_links_remote @elemento_pages %></h5>
+	</div>
+	<div id="inferiores_der">
+		<% if @elemento_pages.item_count == 0 %>
+		<h5>Mostrando 0 - <%= @elemento_pages.current_page.last_item %>
+			  de <%= @elemento_pages.item_count %> elementos.</h5>
+		<% else %>
+		<h5>Mostrando <%= @elemento_pages.current_page.first_item %> - <%= @elemento_pages.current_page.last_item %>
+			  de <%= @elemento_pages.item_count %> elementos.</h5>
+		<% end %>
+	</div>
+</div>

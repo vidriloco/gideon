@@ -1,0 +1,18 @@
+<% @llamada = @record || Llamada.new %>
+<% @llamada.tipo_de_llamada = "No Clasificable" %>
+<%= hidden_field "llamada","tipo_de_llamada" %>
+<% @llamada.fecha_y_hora = Time.now %>
+<%= hidden_field "llamada", "fecha_y_hora" %>
+<%= error_messages_for 'no_clasificable' %>
+<fieldset id="extendido">  
+<legend><span>Registro de Llamada no Clasificable</span></legend>  
+<ol>
+	<div id="secciona">  
+		<li>
+			<label for="llamada_concepto_de_la_llamada">Concepto de la Llamada</label><br/>
+			<%= select("llamada", "concepto_de_la_llamada", MetaLlamada.configuraciones_no_clasificable, { :include_blank => true }) %>
+		</li>
+	</div>
+</ol>
+
+</fieldset>

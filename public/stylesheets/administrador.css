@@ -1,0 +1,60 @@
+
+.admin_principal_tabla{
+	display: table;
+}
+.admin_principal_renglon{
+	display: table-row;
+}
+
+#estados_bloque_chico{
+	width: 210px;
+	border: 1px solid #DCE3EC;
+}
+
+#estados_bloque{
+	width: 300px;
+	border: 1px solid #DCE3EC; 
+}
+#configuraciones_bloque{
+	width: 250px;
+	border: 1px solid #DCE3EC; 
+}
+
+#registro_bloque{
+	width: 600px;
+	border: 1px solid #DCE3EC;
+}
+
+.interior_bloque{
+	border: 1px solid #E4E3BB;
+	display: block;
+	margin: 5px;
+	padding: 9px;
+}
+
+#registro{
+	background-color: #B8D9C4; 
+	border: 1px solid #3D785A; 
+}
+
+.bloquecillo{
+	padding: 5px;
+	display: table-cell;
+}
+
+.bloque_registro{
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 26px;
+	width: 80%;
+	text-align: center;
+}
+
+.bloquecillo_doble{
+	padding: 5px;
+	padding-right: 25px;
+	display: table-cell;
+}
+.alertar{
+	color: red;
+}

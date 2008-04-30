@@ -1,0 +1,67 @@
+<% @llamada = @record %>
+<%= hidden_field_tag "llamada_type", @llamada[:type] %>
+<% unless @llamada.no_reporte %>
+	<% @llamada.no_reporte = Falla.genera_numero(@agente) %>
+<% end %>
+<!--[form:falla]-->
+<div id="combo">
+<fieldset id="extendido">  
+<legend><span>Registro de Falla</span></legend>  
+<ol>
+<li>
+<label for="llamada_no_reporte">No reporte</label><br/>
+	<%= hidden_field "llamada", "no_reporte" %><b style="font-size: 10px;"><%= @llamada.no_reporte %></b>
+</li>
+<li>
+<label for="llamada_producto">Producto</label><br/>
+<%= select("llamada", "producto", MetaLlamada::motivos_nombre, { :include_blank => true })  %>
+</li>
+	<% if @llamada.producto == "Internet" %>
+		<% @seleccion = MetaLlamada::configuraciones_falla_internet %>
+		<% solucion = MetaLlamada::configuraciones_nombre(4, 'r', "Falla", {1 => "Internet", 2 => 'Triple'}) %>
+	<% elsif @llamada.producto == "Telefonía" %>
+		<% @seleccion = MetaLlamada::configuraciones_falla_telefonia %>
+		<% solucion = MetaLlamada::configuraciones_nombre(4, 'r', "Falla", {1 => "Telefonía", 2 => 'Triple'}) %>
+	<% elsif @llamada.producto == "Televisión" %>
+		<% @seleccion = MetaLlamada::configuraciones_falla_television %>
+		<% solucion = MetaLlamada::configuraciones_nombre(4, 'r', "Falla", {1 => "Televisión", 2 => 'Triple'}) %>
+	<% else %>
+		<% @seleccion = ["SELECCIONA UN TIPO DE SERVICIO"]%>
+		<% solucion = @seleccion %>
+	<% end %>
+<li id="r_subfalla">
+<label for="llamada_concepto_de_la_llamada">Concepto de la Llamada</label><br/>
+<%= select("llamada", "concepto_de_la_llamada", @seleccion, { :include_blank => true })  %>
+</li>
+<li><label for="llamada_fecha_de_solución">Fecha de solución</label><br/>
+<%= date_select 'llamada', 'fecha_de_solución'  %>
+</li>
+
+
+<div id="secciona">
+<li>
+<label for="llamada_comentarios">Comentarios</label>
+<%= text_area 'llamada', 'comentarios', "cols" => 40, "rows" => 5  %>
+</li>
+
+<li id="sol_dada">
+<label for="llamada_resultado_de_la_llamada">Resultado de la Llamada</label><br/>
+<%= select("llamada", "resultado_de_la_llamada", solucion , { :include_blank => true })  %>
+</li>
+
+<li>
+<% @orden = Proceso.procesos_nombre_de("falla") %>
+<label for="llamada_orden">Orden</label><br/>
+<%= select("llamada", "orden", @orden , { :include_blank => true })  %>
+</li>
+
+</div>
+</ol>
+
+
+<%= observe_field ("llamada_producto", :frecuency => 0.5, :with => "llamada[producto]", 
+	 :url => {:controller => "llamadas", :action => "servicio_a_falla" }) %>
+
+</fieldset> 
+</div>
+<div id="ticket" style="display:none"></div>

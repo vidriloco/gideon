@@ -1,0 +1,19 @@
+<% if @mensajes.blank? %>
+ 	<p><b>No hay mensajes aún</b></p>
+ <% else %>
+	<p><b>Mensajes Recientes: </b>
+	<%i = 1%>
+<% for mensaje in @mensajes %>
+	<i><b>msg</b> <%= i%> </i>
+	<% if mensaje.mensaje.length > 25 %>
+		<% nueva = limita_msg(mensaje.mensaje) %>
+	<% else %>
+		<% nueva = mensaje.mensaje %>
+	<% end %>
+	
+		<%= link_to_remote nueva, :url =>{:controller => "barra_info", :action => :desde_barra, 
+				:id => mensaje.ticket} %>
+	<%i = i+1%>
+<% end %>
+</p>
+	<% end %>

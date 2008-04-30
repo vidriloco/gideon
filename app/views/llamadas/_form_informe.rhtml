@@ -1,0 +1,41 @@
+<% @llamada = @record %>
+<%= hidden_field_tag "llamada_type", @llamada[:type] %>
+
+<div id="combo1">
+<fieldset id="extendido">  
+<legend><span>Registro de Informe</span></legend>  
+<ol>
+<li>
+<label for="llamada_producto">Producto</label><br/>
+<%= select("llamada", "producto", MetaLlamada::motivos_nombre, { :include_blank => true })  %>
+</li>
+	<% if @llamada.producto == "Internet" %>
+		<% @seleccion = MetaLlamada::configuraciones_nombre(3, 'm', "Informe", {1 => "Internet", 2 => "Triple"}) %>
+	<% elsif @llamada.producto == "Telefonía" %>
+		<% @seleccion = MetaLlamada::configuraciones_nombre(3, 'm', "Informe", {1 => "Telefonía", 2 => "Triple"}) %>
+	<% elsif @llamada.producto == "Televisión" %>
+		<% @seleccion = MetaLlamada::configuraciones_nombre(3, 'm', "Informe", {1 => "Televisión", 2 => "Triple"}) %>
+	<% else %>
+		<% @seleccion = ["SELECCIONA UN TIPO DE SERVICIO"]%>
+	<% end %>
+<li id="concepto_ll">
+<label for="llamada_concepto_de_la_llamada">Concepto de la Llamada</label><br/>
+<%= select("llamada", "concepto_de_la_llamada", @seleccion, { :include_blank => true })  %>
+</li>
+
+<div id="secciona">
+
+<li>
+		<% solucion = MetaLlamada::configuraciones_nombre(4, 'r', "Informe") %>
+<label for="llamada_resultado_de_la_llamada">Resultado de la Llamada</label><br/>
+<%= select("llamada", "resultado_de_la_llamada", solucion , { :include_blank => true })  %>
+</li>
+
+</div>
+</ol>
+
+
+<%= observe_field ("llamada_producto", :frecuency => 0.5, :with => "producto", 
+	 :url => {:controller => "llamadas", :action => "producto_a_concepto" }) %>
+</fieldset>
+

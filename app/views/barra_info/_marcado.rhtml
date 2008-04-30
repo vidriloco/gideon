@@ -1,0 +1,6 @@
+<% if ticket.marcado %>
+	<h5><b>Marcado </b>- <%= link_to_remote "DesMarcar", :url => { :action => :marcar, :id => ticket} %></h5>
+<% else %>
+	<h5><b>Sin Marcar </b>- <%= link_to_remote "Marcar", :url => { :action => :marcar, :id => ticket} %></h5>
+<% end %>  
+

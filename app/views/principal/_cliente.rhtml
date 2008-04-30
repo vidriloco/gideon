@@ -1,0 +1,30 @@
+<div id="campo">
+	<h4>Información de Cliente</h4>
+	<p>
+	  <h5>Nombre del Cliente: <p><%=h @record.nombre_completo %></p></h5>
+	  <h5>Número de Contrato: <p><%= @record.número_de_contrato %></p></h5>
+	  <h5>Dirección: <p> <b>Calle </b><%=h @record.calle %> 
+	  					<b>Ext </b><%=h @record.número_exterior %>
+	  					<% unless @record.número_interior %>
+		  					<b>Int </b><%=h @record.número_interior %>
+		  				<% end %>
+	  					<b>Colonia </b><%=h @record.colonia %>
+	  					<b>CP </b><%=h @record.código_postal %>
+	  							 </p>
+	  </h5>
+	  <h5>Teléfono Telmex: <p><%=h @record.teléfono_telmex %></p></h5>
+	  <% if @record.teléfono_alo %>
+	  	<h5>Teléfono Alo: <p><%=h @record.teléfono_alo %></p></h5>
+	  <% end %>
+	  <h5>Localidad: <p><%=h @record.municipio %></p></h5>
+	  <h5>Estado: <p><%=h @record.estado %></p></h5>
+	  <% if not @record.primera_calle_de_referencia.blank? and not @record.segunda_calle_de_referencia.blank? %>
+	  	<h5>Calles de Referencia: <p><%=h @record.primera_calle_de_referencia %><b> y </b>
+	  													   <%=h @record.segunda_calle_de_referencia %></p></h5>
+	  <% elsif not @record.primera_calle_de_referencia.blank? %>
+	  	<h5>Calle de Referencia: <p><%=h @record.primera_calle_de_referencia %></h5>
+	  <% elsif not @record.segunda_calle_de_referencia.blank? %>
+	  	<h5>Calle de Referencia: <p><%=h @record.segunda_calle_de_referencia %></h5>	
+		<% end %>
+	</p>
+</div>

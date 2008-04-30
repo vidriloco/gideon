@@ -1,0 +1,11 @@
+<h6><%= link_to_remote "#{ticket.llamada.producto}", :url => {:action => :show, :id => ticket} %> (<i><%= ticket.estado %></i>)</h6>
+  <h5><%= ticket.prioridad %></h5>
+  <h6><%= ticket.enviar_a %></h6>  
+  <%= link_to_remote "Más Detalles", :url => {:action => :detalle_ticket, :id => 'a', :locals => {:ti => ticket}}%>
+  <br/>
+  <div id=<%="msg" + ticket.id.to_s + ">" %></div>
+  <div id=<%="elemento" + ticket.id.to_s + ">" %> 
+  		<%= link_to_remote "Mensajes", :url => {:action => :mensajes, :id => ticket} %>
+  		<%= link_to_remote "Archivos Adjuntos", :url => {:action => :archivos_listado, :id => ticket} %>
+  </div>
+

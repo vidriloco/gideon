@@ -1,0 +1,147 @@
+.principal{
+	width: 98%;
+	display:block;
+	height: auto;
+	margin-right: -30px;
+	margin-top:1em;  
+	background-color: #FFF; 
+	border: 1px solid #DBD7D6;
+}
+
+.t_centrado{
+	text-align: center;
+}
+
+.seccionable{
+	width: 95%;
+	margin-left: 15px;
+	margin-bottom: 10px;
+	padding-left: 5px;
+	padding-bottom: 10px;
+}
+
+.adorno_llamada{
+	margin-left:-5px;
+	height:15px;
+	background-image: url(../images/verde_stripe.png);
+	background-repeat: repeat-x repeat-y;
+}
+
+.seccion_encabezado{
+	text-transform: uppercase;
+	font-size: 13px;
+	margin:-5px;
+}
+
+.borde{
+	padding: 15px;
+	height: auto;
+	border: 1px solid #C1BEA2;
+}
+
+.lista_opciones{
+	display: inline;
+	padding: 10px;
+	font-size: 11px;
+}
+
+.agrupacion_opciones{
+	display: block;
+	padding: 4px;
+	font-size: 11px;
+	border-bottom: 1px solid #DBDCDD;
+	margin-left: 6px;
+	margin-bottom: 5px;
+}
+
+#cambiante{
+	margin-top: 20px;
+	display: block;
+	padding: 10px;
+	text-align: center;
+}
+
+#reporte_consulta{
+	position: relative;
+	text-align: center;
+	float: bottom;
+}
+.img{
+	padding:15px;
+}
+.estrecho{
+	width: 70%;
+}
+.seccion_p{
+	width: 99%;
+	border: 1px solid #E9F0BA;
+	margin-top: 10px;
+}
+.reporte_f{
+	display: table;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 30px;
+	margin-top: 20px;
+	width: auto;
+	height: 10%;
+	background-color: #C9D7E7; 
+	border: 1px solid #BFBAB0;
+}
+.centrado{
+	margin-left: auto;
+	margin-right: auto;
+}
+.bloquecillo{
+	display: table-cell;
+	width: auto;
+}
+.renglon_f{
+	display: table-row;
+}
+.opcion{
+	display: inline;
+	text-transform: uppercase;
+	padding: 4px;
+	padding-top: 2px;
+	margin-left: 2px;
+}
+#o_informe{
+	background: #C9C1DE;
+	border: 1px solid #AB93D0;
+}
+#o_falla{
+	background: #C0D1A3;
+	border: 1px solid #96C93E;
+}
+#o_general{
+	background: #F3DAA8;
+	border: 1px solid #C4895A;
+}
+#o_prospecto{
+	background: #E6B8AF;
+	border: 1px solid #D8846E;
+}
+#o_otra{
+	background: #A9B5E2;
+	border: 1px solid #6385AA;
+}
+.adorno_forma{
+	height:30px;
+	background-repeat: repeat-x repeat-y;
+}
+#informe_forma{
+	background-image: url(../images/violeta_brillante_stripe.png);
+}
+#falla_forma{
+	background-image: url(../images/verde_brillante_stripe.png);
+}
+#falla_general{
+	background-image: url(../images/naranja_brillante_stripe.png);
+}
+#falla_otra{
+	background-image: url(../images/azul_brillante_stripe.png)
+}
+#falla_prospecto{
+	background-image: url(../images/rojo_brillante_stripe.png)
+}

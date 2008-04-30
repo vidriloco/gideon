@@ -1,0 +1,53 @@
+<% @llamada = @record %>
+<% unless @llamada.estado %>
+	<% @llamada.estado = @cliente.estado %>
+<% end %>
+<% unless @llamada.fecha_y_hora %>
+	<% @llamada.fecha_y_hora = Time.now %>
+<% end %>
+<% unless @llamada.agente %>
+	<% @llamada.agente = @agente %>
+<% end %>
+<%= hidden_field_tag "llamada_type", @llamada[:type] %>
+<!--[form:llamada]-->
+<fieldset id="extendido">  
+<legend><span><%= value %> de Llamada</span></legend>  
+<ol>
+<div id="secciona">  
+<li>
+<label for="llamada_estado">Estado</label>
+	<%= text_field "llamada", "estado" %>
+</li>
+<li class="anchura">
+<label for="llamada_fecha_y_hora">Fecha y hora</label><br/>
+	<b style="font-size: 10px;">
+		<%= Time.now.to_s(:long) %>
+	</b>
+</li>
+</div>
+<div id="secciona">
+
+<li>
+<label for="llamada_agente">Agente</label>
+	<%= text_field "llamada", "agente" %>
+</li>
+<li>
+<div id="renglon">
+	<div id="inrenglon">		
+	<label for="llamada_tipo_de_llamada">Tipo de llamada</label>
+		<%= select("llamada", "tipo_de_llamada", MetaLlamada::tipos_llamadas_nombre, 
+					{ :include_blank => true })  %>		
+	</div>
+	<div id="inrenglon">		
+		<label for="llamada_no_contacto">No Contacto</label>
+		<%= select("llamada", "no_contacto", MetaLlamada::numeros_nombre, { :include_blank => true }) %>	
+	</div>
+</div>
+</li>
+</div>
+</ol>
+<%= observe_field ("llamada_tipo_de_llamada", :frecuency => 0.5, :with => "llamada[tipo_de_llamada]", :url => {:action => :observador_fieldset }) %>
+</fieldset>  
+<!--[eoform:llamada]-->
+
+

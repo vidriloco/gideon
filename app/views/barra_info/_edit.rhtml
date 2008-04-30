@@ -1,0 +1,15 @@
+<div class="auxiliar" id="superiores">
+<%= link_to_remote "Cancelar", :url => {:action => :desde_barra, :id => @ticket} %>
+</div> 
+
+	<h3>Modificación de Ticket</h3>
+
+	<%= form_remote_tag(:url=> {:action => :update_ticket, :id => @ticket})  %>
+	  <div id="dummy">
+		  <%= render :partial => 'principal/form_ticket', :id => @ticket %>
+		  <div id="submit">
+		  		<%= submit_tag 'Guardar' %>
+		  </div>
+	  </div>
+	<% end_form_tag %>
+

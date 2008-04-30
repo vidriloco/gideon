@@ -1,0 +1,10 @@
+
+<% if subfalla.blank? %>
+	<label for="llamada_concepto_de_la_llamada">Concepto de la Llamada</label><br/>
+	<%= select("llamada", "concepto_de_la_llamada", ["SELECCIONA UN TIPO DE SERVICIO"])  %>
+<% else %>
+	<label for="llamada_concepto_de_la_llamada">Concepto de la Llamada</label><br/>
+	<% seleccion = MetaLlamada::configuraciones_falla(subfalla) %>
+	<%= select("llamada", "concepto_de_la_llamada", seleccion , { :include_blank => true })  %>
+<% end %>
+

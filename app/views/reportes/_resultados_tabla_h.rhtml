@@ -1,0 +1,57 @@
+<% if @datos.numero == 0 %>
+	<div class="t_centrado"><h5>No hubo registros que coincidieran con su petición</h5></div>
+<% else %>
+
+<h3><%= escenario %></h3>
+
+<table class="centrado">
+	<% estados = @datos.estados %>
+	<% lista = @datos.columnas %>
+	<% renglones = @datos.renglones %>
+	<tr>
+		<th class="sobre_l"></th>
+		<% for elemento in lista %>
+			<th class="sobre_l"><%= elemento %></th>
+		<% end %>
+		<th class="sobre_l">Total</th>
+	</tr>
+	<% for renglon in renglones %>
+		<tr>
+			<th class="total_e"><%= renglon.estado %></th>
+			<% for elemento in lista %>
+				 <th><%= renglon.columnas[elemento][:total] %></th>
+			<% end %>
+			<th><%= renglon.columnas["Total"][:total] %></th>
+		</tr>
+		<tr>
+			<th>---</th>
+			<% for elemento in lista %>
+				 <th><%= renglon.columnas[elemento][:promedio].to_s + "%" %></th>
+			<% end %>
+			<th><%= renglon.columnas["Total"][:promedio].to_s + "%" %></th>
+		</tr>
+	<% end %>
+	<% total_total = @datos.total %>
+		<tr>
+			<th class="totalc">Total</th>
+		<% for elemento in lista %>
+			<th><%= total_total[elemento][:total] %></th>
+		<% end %>
+			<th><%= total_total["Total"][:total] %></th>
+		</tr>
+		<tr>
+			<th></th>
+		<% for elemento in lista %>
+			<th><%= total_total[elemento][:promedio].to_s + "%" %></th>
+		<% end %>
+			<th><%= total_total["Total"][:promedio].to_s + "%" %></th>
+		</tr>
+</table>
+
+<br/>
+
+<%= link_to "Generar PDF", :action => :genera_pdf %>
+<%= link_to_remote "Ver Gráfica", :url => {:action => :imagen_muestra_esconde, :id => 'a'} %>
+
+<div class="img" id="imagen"></div>
+<% end %>
